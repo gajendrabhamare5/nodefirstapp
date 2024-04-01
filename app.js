@@ -3,7 +3,7 @@ const EventEmitter = require('events')
 const customEmitter =  new EventEmitter()
 
 customEmitter.on('response',() => {
-    console.log('data received')
+    console.log('data received successfully')
 })
 
 customEmitter.emit('response')
