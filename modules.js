@@ -9,6 +9,6 @@ const sayhii = (name) => {
 console.log(`Hello there ${name}`);
 }
 
-sayhii ('poonam');
+sayhii ('gaurav');
 sayhii (gajendra);
 sayhii (durgesh);

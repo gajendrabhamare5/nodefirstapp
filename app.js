@@ -1,9 +1,25 @@
-const EventEmitter = require('events')
+var http = require('http');
+var fs = require('fs');
 
-const customEmitter =  new EventEmitter()
+var server = http.createServer((req,res)=>{
+var data;
 
-customEmitter.on('response',() => {
-    console.log('data received successfully')
+fs.readFile('sample.txt',(err,data)=>{
+    if(err){
+        data = 'error while reading the file';
+    }else {
+        res.writeHead(200,{'content-type':'text/html'});
+        res.write(data);
+        res.end;
+    }
+});
+
+});
+
+server.listen(5000,()=>{
+    console.log('Started...');
 })
+console.log('working');
 
-customEmitter.emit('response')
+const time = new Date().getFullYear()
+console.log(time);
