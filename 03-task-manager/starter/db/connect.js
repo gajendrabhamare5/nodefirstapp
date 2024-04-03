@@ -2,10 +2,9 @@ const { connect } = require("mongoose");
 
 const mongoose = require("mongoose")
 
-const connectionString= 'mongodb+srv://gajendra:gaju123@nodeexpressprojects.hzdwbgj.mongodb.net/03-TASK-MANAGER?retryWrites=true&w=majority&appName=NodeExpressProjects'
 
 const connectDB = (url)=>{
-return mongoose.connect( connectionString, {
+return mongoose.connect( url, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: true,
