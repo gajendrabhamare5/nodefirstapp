@@ -1,6 +1,6 @@
 
 const getAllTasks = (req,res)=>{
-    res.send('grt all task')
+    res.send('grt all task');
 }
 
 const createTask =(req,res) =>{
@@ -17,6 +17,6 @@ const deleteTask =(req,res) =>{
 }
 
 
-module.export = {
+module.exports = {
     getAllTasks,createTask,getTask,updateTask,deleteTask
 }
