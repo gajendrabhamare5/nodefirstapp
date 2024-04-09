@@ -32,13 +32,13 @@
   {
     "name": "dining table",
     "price": 42,
-    "company": "ikea",
+    "company": "liddy",
     "rating": 4.55
   },
   {
     "name": "emperor bed",
     "price": 23,
-    "company": "ikea"
+    "company": "liddy"
   },
   {
     "name": "entertainment center",
@@ -50,7 +50,7 @@
     "name": "high-back bench",
     "price": 39,
     "featured": true,
-    "company": "ikea"
+    "company": "liddy"
   },
 
   {
@@ -72,7 +72,7 @@
   {
     "name": "shelf",
     "price": 30,
-    "company": "ikea"
+    "company": "liddy"
   },
   {
     "name": "simple chair",
@@ -104,17 +104,17 @@
   {
     "name": "wooden bed",
     "price": 25,
-    "company": "ikea"
+    "company": "liddy"
   },
   {
     "name": "wooden desk",
     "price": 15,
-    "company": "ikea"
+    "company": "liddy"
   },
   {
     "name": "wooden desk",
     "price": 40,
-    "company": "ikea"
+    "company": "liddy"
   },
   {
     "name": "wooden table",
