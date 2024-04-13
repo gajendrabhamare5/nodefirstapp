@@ -13,7 +13,7 @@ const token = user.createJWT()
 }
 
 const login = async (req,res) =>{
-
+console.log('here...');
     const {email,password } =req.body
 
     if(!email || !password)
