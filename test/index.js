@@ -1,54 +1,26 @@
-const mongoose = require('mongoose');
 const express = require('express')
-
-const port = process.env.PORT || 7000;
+require("./config")
+const Product = require('./products')
 const app = express();
 
- mongoose.connect("mongodb://localhost:27017/test");
-    const ProductSchema = new mongoose.Schema({
-        name: String,
-        price: Number
-    });
+app.use(express.json());
 
-const saveInDB = async () => {
-
-    app.listen(port, () =>
-        console.log(`Server is listening on port ${port}...`)
-    );
-
-    const Product = mongoose.model('users', ProductSchema);
-    const data = new Product({
-        name: "gajendra bhamare",
-        price: 500
-    })
-    const result = await data.save();
-
-}
-
-const updateInDB =async ()=>{
-
-    const Product = mongoose.model('user',ProductSchema)
-    const data = await Product.updateOne(
-        {name:"gajendra bhamare"},
-        {$set:{price:200}}
+app.get('/search/:key',async (req,resp)=>{
+    console.log(req.params.key);
+    const data = await Product.find(
+        {
+            "$or":[
+                { "name":{$regex:req.params.key}}
+            ]
+        }
     )
-    console.log(data);
-}
 
-const deleteInDB = async ()=>{
+resp.send(data)
+})
 
-    const Product = mongoose.model('user',ProductSchema)
-const data = await Product.deleteOne({_id:"6620c8186adee4a3aab26a91"})
-console.log(data);
 
-}
+const PORT = 3000;
 
-const findInDB = async ()=>{
-
-    const Product = mongoose.model('user',ProductSchema)
-const data = await Product.find()
-console.log(data);
-
-}
-
-findInDB()
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}...`);
+});
