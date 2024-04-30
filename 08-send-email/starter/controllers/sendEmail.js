@@ -8,14 +8,14 @@ const sendEmailEthereal = async (req, res) => {
     host: 'smtp.ethereal.email',
     port: 587,
     auth: {
-      user: 'marlene.legros@ethereal.email',
-      pass: 'va4q5BKKtry7aq58Gv',
+      user: 'xyz@ethereal.email',
+      pass: '123456',
     },
   });
 
   let info = await transporter.sendMail({
-    from: '"Coding Addict" <codingaddict@gmail.com>',
-    to: 'bar@example.com',
+    from: '"Coding Addict" <xyz@gmail.com>',
+    to: 'xyz@example.com',
     subject: 'Hello',
     html: '<h2>Sending Emails with Node.js</h2>',
   });
@@ -26,8 +26,8 @@ const sendEmailEthereal = async (req, res) => {
 const sendEmail = async (req, res) => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
-    to: 'learncode@mail.com', // Change to your recipient
-    from: 'learncodetutorial@gmail.com', // Change to your verified sender
+    to: 'xyz@mail.com', // Change to your recipient
+    from: 'xyz@gmail.com', // Change to your verified sender
     subject: 'Sending with SendGrid is Fun',
     text: 'and easy to do anywhere, even with Node.js',
     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
