@@ -8,6 +8,9 @@ const app = express()
 //rest of the packages
 const morgan = require('morgan')
 
+// Routers
+const authRouter = require('./routes/authRoutes')
+
 //Database
 const connectDB = require('./db/connect')
 
@@ -19,9 +22,11 @@ app.use(morgan('tiny'))
 app.use(express.json())
 
 app.get('/',(req,resp) =>{
-    throw new Error('hello there')
+   /*  throw new Error('hello there') */
     resp.send('e-commerce api')
 })
+
+app.use('/api/v1/auth',authRouter);
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
