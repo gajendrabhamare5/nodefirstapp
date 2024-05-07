@@ -1,7 +1,8 @@
 const User = require('../models/User')
 const { StatusCodes } = require('http-status-codes')
 const CustomError = require('../errors');
-const {createJWT} = require('../utils')
+const {createJWT} = require('../utils');
+
 const register = async (req, res) => {
     /* res.send('Register User') */
 
@@ -20,7 +21,14 @@ const register = async (req, res) => {
     /* const token = jwt.sign(tokenUser,'jwtSecret',{expiresIn:'1d'}) */
     const token = createJWT({payload:tokenUser})
 
-    res.status(StatusCodes.CREATED).json({ user:tokenUser,token })
+    const oneDay = 1000 * 60 * 60 * 24
+
+    res.cookie('token',token,{
+        httpOnly:true,
+        expires:new Date(Date.now()+ oneDay)
+    })
+
+    res.status(StatusCodes.CREATED).json({ user:tokenUser })
 };
 const login = async (req, res) => {
     res.send('Login User')
