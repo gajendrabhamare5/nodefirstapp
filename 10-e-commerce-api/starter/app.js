@@ -7,6 +7,7 @@ const app = express()
 
 //rest of the packages
 const morgan = require('morgan')
+const cookieParser = require('cookie-parser')
 
 // Routers
 const authRouter = require('./routes/authRoutes')
@@ -20,11 +21,19 @@ const errorHandlerMiddleware = require('./middleware/error-handler')
 
 app.use(morgan('tiny'))
 app.use(express.json())
+app.use(cookieParser(process.env.JWT_SECRET));
 
-app.get('/',(req,resp) =>{
+app.get('/',(req,res) =>{
    /*  throw new Error('hello there') */
-    resp.send('e-commerce api')
+
+    res.send('e-commerce api')
 })
+
+app.get('/api/v1',(req,res) =>{
+    /*  throw new Error('hello there') */
+    console.log(req.signedCookies);
+     res.send('e-commerce api')
+ })
 
 app.use('/api/v1/auth',authRouter);
 
